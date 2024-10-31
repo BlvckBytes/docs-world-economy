@@ -31,6 +31,8 @@ worldGroups:
   World:
     # Rendered in chat, whenever this world-group is referred to
     displayName: '&6World'
+    # Balance set to an account whenever it's first created
+    startingBalance: 200.0
     # List of world-names which are combined into a single economy-account per player
     members:
       - world
