@@ -25,8 +25,9 @@ Not only due to the fact that worlds are usually split into multiple realms, lik
 
 ```yaml
 worldGroups:
-  # Used to internally identify balances, as well as for tab-completion
-  # Do not alter once initially established!
+  # Used to internally identify balances, as well as for tab-completion.
+  # Identifiers ignore casing, so feel free to use whichever you see fit.
+  # Do not alter its case-invariant value once initially established!
   World:
     # Rendered in chat, whenever this world-group is referred to
     displayName: '&6World'
@@ -36,6 +37,8 @@ worldGroups:
       - world_nether
       - world_the_end
 ```
+
+If a transaction-call to the economy-provider is made *without* specifying a world-name, the target player's active world-group will be used as a fallback. If the resolved world does not belong to any configured world-group, the transaction will fail.
 
 ### Currently Active World-Group
 
@@ -57,7 +60,7 @@ The following section provides a list of supported commands, usages, explanation
 - Permissions:
   - `worldeconomy.command.balance`: View your own balance
   - `worldeconomy.command.balance.other`: View the balance of others
-- Description: Displays the balance of a player within their current world-group
+- Description: Displays the balance of a player within the executor's current world-group
 
 ### Balance Group
 
@@ -95,15 +98,14 @@ The following section provides a list of supported commands, usages, explanation
 - Usage: `/money <Set/Remove/Add> <player> <value> [world-group]`
 - Permissions:
   - `worldeconomy.command.money`: Execute the money command
-- Description: Admin-tool to manage the balance of any given player within either their current, or a specified world-group
+- Description: Admin-tool to manage the balance of any given player within either the executor's current-, or a specified world-group
 
 ### Pay
 
 - Usage: `/pay <name> <amount>`
 - Permissions:
   - `worldeconomy.command.pay`: Execute the pay command
-  - `worldeconomy.command.pay.cross`: Whether the player can pay to players in other world-groups
-- Description: Pay money to another player
+- Description: Pay money to another player - always within the same world-group as the sender's in.
 
 ### Pay Group
 
@@ -113,8 +115,7 @@ The following section provides a list of supported commands, usages, explanation
 - Permissions:
   - `worldeconomy.command.paygroup`: Execute the paygroup command
   - `worldeconomy.command.paygroup.source`: Specify a custom source-group to pay from
-  - `worldeconomy.command.paygroup.cross`: Whether the player can pay to players in other world-groups
-- Description: Pay from a world-group possibly different than the current of the sender, to a world-group different than the current of the recipient
+- Description: Pay from a world-group possibly different than the current of the sender, to a world-group possibly different than the current of the recipient. If the source is not specified, it falls back to the sender's current world-group.
 
 ### Reload
 
