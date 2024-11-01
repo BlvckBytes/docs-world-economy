@@ -100,7 +100,7 @@ The following section provides a list of supported commands, usages, explanation
 - Usage: `/money <Set/Remove/Add> <player> <value> [world-group]`
 - Permissions:
   - `worldeconomy.command.money`: Execute the money command
-- Description: Admin-tool to manage the balance of any given player within either the executor's current-, or a specified world-group
+- Description: Admin-tool to manage the balance of any given player within either their current-, or a specified world-group
 
 ### Pay
 
