@@ -127,3 +127,22 @@ The following section provides a list of supported commands, usages, explanation
 - Permissions:
   - `worldeconomy.command.reload`
 - Description: Reload the configuration- and language-file
+
+## PlaceholderAPI
+
+If [PlaceholderAPI](https://github.com/PlaceholderAPI/PlaceholderAPI) is installed and loaded, this plugin will register a placeholder expansion, supporting all commands as listed in the following sections; they each share the same pattern of `%worldeconomy_<command>_<...>%`
+
+### BalTop
+
+The top-list of each world-group can be accessed by place, retrieving that slot's name or balance.
+
+`%worldeconomy_baltop_<world-group-identifier>_<place>_name|balance%`
+
+As an example, the name and balance of the world-group called `survival` for the first 3 places can be accessed as follows:
+
+- `%worldeconomy_baltop_survival_1_name%`
+- `%worldeconomy_baltop_survival_1_balance%`
+- `%worldeconomy_baltop_survival_2_name%`
+- `%worldeconomy_baltop_survival_2_balance%`
+- `%worldeconomy_baltop_survival_3_name%`
+- `%worldeconomy_baltop_survival_3_balance%`
